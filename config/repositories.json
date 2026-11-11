@@ -1,10 +1,22 @@
 {
   "repositories": [
     {
-      "name": "Example project",
-      "full_name": "YOUR_GITHUB_USERNAME/YOUR_REPOSITORY",
+      "name": "ValutT",
+      "full_name": "Tharun-Pasumarthi/ValutT",
       "branch": "main",
-      "enabled": false
+      "enabled": true
+    },
+    {
+      "name": "Tharun-Pasumarthi",
+      "full_name": "Tharun-Pasumarthi/Tharun-Pasumarthi",
+      "branch": "main",
+      "enabled": true
+    },
+    {
+      "name": "ClipMesh",
+      "full_name": "Tharun-Pasumarthi/ClipMesh",
+      "branch": "main",
+      "enabled": true
     }
   ]
 }
