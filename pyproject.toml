@@ -1,0 +1,14 @@
+[project]
+name = "github-auto-push"
+version = "1.0.0"
+description = "Production GitHub Auto-Push Scheduler with daily central heartbeat reports"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.32.0,<3.0.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-ra"
+

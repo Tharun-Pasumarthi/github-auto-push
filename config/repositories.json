@@ -1,0 +1,10 @@
+{
+  "repositories": [
+    {
+      "name": "Example project",
+      "full_name": "YOUR_GITHUB_USERNAME/YOUR_REPOSITORY",
+      "branch": "main",
+      "enabled": false
+    }
+  ]
+}
