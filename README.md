@@ -6,7 +6,7 @@ A production-ready, cloud-scheduled **GitHub Auto-Push Scheduler** powered by Gi
 
 ## 1. What the Project Does
 
-- Runs automatically once per day at **4:15 PM IST (16:15 Asia/Kolkata)** via GitHub Actions (`cron: "45 10 * * *"`). Uses an off-peak minute (`:45`) to bypass top-of-the-hour queue congestion on GitHub Actions runners.
+- Runs automatically once per day at **4:26 PM IST (16:26 Asia/Kolkata)** via GitHub Actions (`cron: "56 10 * * *"`). Uses an off-peak minute (`:56`) to bypass top-of-the-hour queue congestion on GitHub Actions runners.
 - Supports on-demand manual runs via **Actions → Daily GitHub Heartbeat → Run workflow** (`workflow_dispatch`).
 - Inspects any number of enabled public or private GitHub repositories using read-only GitHub REST API `GET` requests.
 - Detects archived repositories, deleted/inaccessible repositories, missing branches, rate limits, and authentication errors without aborting the central heartbeat.
@@ -23,7 +23,7 @@ A production-ready, cloud-scheduled **GitHub Auto-Push Scheduler** powered by Gi
 
 | Component | Technology | Responsibility |
 |---|---|---|
-| Cloud Scheduler | GitHub Actions (`.github/workflows/daily-sync.yml`) | Daily `45 10 * * *` (4:15 PM IST) cron + `workflow_dispatch`, concurrency guard, job timeout, pinned actions, log artifact retention |
+| Cloud Scheduler | GitHub Actions (`.github/workflows/daily-sync.yml`) | Daily `56 10 * * *` (4:26 PM IST) cron + `workflow_dispatch`, concurrency guard, job timeout, pinned actions, log artifact retention |
 | Orchestrator | `src/scheduler.py` | Coordinates config loading, monitoring, reporting, central Git push, and exit status |
 | Config Manager | `src/repository_manager.py` | Parses and validates `config/repositories.json` |
 | API Client | `src/github_client.py` | HTTPS-only, read-only `GET` checks with timeouts and bounded exponential backoff retries |
@@ -192,7 +192,7 @@ After the workflow succeeds:
    - Branch, visibility, latest commit SHA, and last push UTC for each accessible repository.
 3. Open the workflow run **Summary** and download the `heartbeat-logs-*` artifact if you want to inspect full diagnostic logs.
 
-> **Schedule note:** Cron `45 10 * * *` runs at 10:45 UTC (16:15 IST / 4:15 PM IST). GitHub Actions executes 100% in GitHub's cloud, so it triggers automatically even when your personal computer or device is turned off or offline.
+> **Schedule note:** Cron `56 10 * * *` runs at 10:56 UTC (16:26 IST / 4:26 PM IST). GitHub Actions executes 100% in GitHub's cloud, so it triggers automatically even when your personal computer or device is turned off or offline.
 
 ---
 

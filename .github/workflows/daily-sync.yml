@@ -2,9 +2,9 @@ name: Daily GitHub Heartbeat
 
 on:
   schedule:
-    # 10:45 UTC = 16:15 India Standard Time (4:15 PM IST, UTC+05:30)
+    # 10:56 UTC = 16:26 India Standard Time (4:26 PM IST, UTC+05:30)
     # Cloud-native GitHub Actions trigger: runs 100% in the cloud even when your device is offline
-    - cron: "45 10 * * *"
+    - cron: "56 10 * * *"
   workflow_dispatch:
 
 permissions:
@@ -43,12 +43,7 @@ jobs:
           # Never exposed to Git push operations; falls back to GITHUB_TOKEN for public repos.
           REPOSITORY_READ_TOKEN: ${{ secrets.REPOSITORY_READ_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            python -m src.scheduler --push --force-report-update
-          else
-            python -m src.scheduler --push
-          fi
+        run: python -m src.scheduler --push --force-report-update
 
       - name: Upload diagnostic execution logs
         if: always()

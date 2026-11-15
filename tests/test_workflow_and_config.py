@@ -24,7 +24,7 @@ def test_daily_sync_workflow_schedule_security_and_pins() -> None:
 
     # PyYAML parses bare `on:` as boolean True unless quoted.
     triggers = data.get("on") if "on" in data else data[True]
-    assert triggers["schedule"] == [{"cron": "45 10 * * *"}]
+    assert triggers["schedule"] == [{"cron": "56 10 * * *"}]
     assert "workflow_dispatch" in triggers
 
     assert data["permissions"] == {"contents": "write"}
