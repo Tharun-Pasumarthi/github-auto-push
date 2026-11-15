@@ -2,8 +2,9 @@ name: Daily GitHub Heartbeat
 
 on:
   schedule:
-    # 15:00 UTC = 20:30 India Standard Time (Asia/Kolkata, UTC+05:30)
-    - cron: "0 15 * * *"
+    # 10:25 UTC = 15:55 India Standard Time (3:55 PM IST, UTC+05:30)
+    # Cloud-native GitHub Actions trigger: runs 100% in the cloud even when your device is offline
+    - cron: "25 10 * * *"
   workflow_dispatch:
 
 permissions:
