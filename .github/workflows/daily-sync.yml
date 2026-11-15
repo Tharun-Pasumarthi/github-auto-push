@@ -43,7 +43,12 @@ jobs:
           # Never exposed to Git push operations; falls back to GITHUB_TOKEN for public repos.
           REPOSITORY_READ_TOKEN: ${{ secrets.REPOSITORY_READ_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python -m src.scheduler --push
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python -m src.scheduler --push --force-report-update
+          else
+            python -m src.scheduler --push
+          fi
 
       - name: Upload diagnostic execution logs
         if: always()
